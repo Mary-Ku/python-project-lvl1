@@ -9,3 +9,9 @@ build:
 
 package-install:
 	uv tool install dist/*.whl
+
+lint:
+	uv run ruff check .
+
+lint-fix:
+	uv run ruff check . --fix
