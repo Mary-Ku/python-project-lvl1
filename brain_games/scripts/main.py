@@ -1,9 +1,15 @@
+import logging
+
 from brain_games.cli import welcome_user
 
-def main():
-    print('Welcome to the Brain Games!')
+logger = logging.getLogger(__name__)
+
+
+def main() -> None:
+    logger.info('Welcome to the Brain Games!')
     welcome_user()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     main()
