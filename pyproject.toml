@@ -22,3 +22,4 @@ dev = [
 
 [project.scripts]
 brain-games = "brain_games.scripts.main:main"
+brain-even = "brain_games.scripts.is_digit_even:main"
