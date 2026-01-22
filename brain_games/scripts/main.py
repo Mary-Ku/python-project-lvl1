@@ -1,11 +1,10 @@
-import logging
+"""Модуль содержит точку входа проекта Brain Games."""
 
-from brain_games.cli import welcome_user
-
-logger = logging.getLogger(__name__)
+from brain_games.cli import logger, welcome_user
 
 
 def main() -> None:
+    """Точка входа проекта Brain Games."""
     logger.info('Welcome to the Brain Games!')
     welcome_user()
 
