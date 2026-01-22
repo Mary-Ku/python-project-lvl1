@@ -17,6 +17,7 @@ packages = ["brain_games"]
 
 [dependency-groups]
 dev = [
+    "mypy>=1.19.1",
     "ruff>=0.14.13",
 ]
 
