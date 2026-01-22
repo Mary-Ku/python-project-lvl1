@@ -2,7 +2,7 @@
 
 from secrets import randbelow
 
-import prompt
+import prompt  # type: ignore[import-untyped]
 
 from brain_games.cli import logger, welcome_user
 

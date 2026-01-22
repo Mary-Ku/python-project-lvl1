@@ -2,7 +2,7 @@
 
 import logging
 
-import prompt
+import prompt  # type: ignore[import-untyped]
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO,
@@ -19,7 +19,7 @@ def welcome_user() -> str | None:
             None, если вместо имени введён пробел
 
     """
-    name = prompt.string('May I have your name? ').strip()
+    name: str | None = prompt.string('May I have your name? ').strip()
     if not name:
         logger.info("It's impossible to continue without your name. Maybe next time.")
         return None
