@@ -19,6 +19,7 @@ def welcome_user() -> str | None:
             None, если вместо имени введён пробел
 
     """
+    logger.info('Welcome to the Brain Games!')
     name: str | None = prompt.string('May I have your name? ').strip()
     if not name:
         logger.info("It's impossible to continue without your name. Maybe next time.")
