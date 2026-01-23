@@ -31,7 +31,6 @@ def is_answer_correct(number: int, answer: str) -> bool:
 
 def main() -> None:
     """Точка входа игры 'Is Digit Even?'."""
-    logger.info('Welcome to the Brain Games!')
     name = welcome_user()
     if not name:
         return
