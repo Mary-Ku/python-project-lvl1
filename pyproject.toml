@@ -25,3 +25,4 @@ dev = [
 brain-games = "brain_games.scripts.main:main"
 brain-even = "brain_games.scripts.is_digit_even:main"
 brain-calc = "brain_games.scripts.calculator:main"
+brain-gcd = "brain_games.scripts.gcd:main"
