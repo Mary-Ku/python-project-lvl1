@@ -44,7 +44,7 @@ def main() -> None:
 
         # Игра предлагает число, пользователь вводит ответ
         answer = prompt.string(f'Question: {number}')
-        logger.info(f'Your answer: {answer}')
+        logger.info('Your answer: %s', answer)
 
         formatted_answer = answer.lower().strip()
 
@@ -55,12 +55,14 @@ def main() -> None:
             correct_answer = _WRONG_ANSWERS_MAP[formatted_answer]
 
             logger.info(
-                f'"{formatted_answer}" is wrong answer ;(. Correct answer is "{correct_answer}"',
+                '"%s" is wrong answer ;(. Correct answer is "%s"',
+                formatted_answer,
+                correct_answer,
             )
-            logger.info(f"Let's try again, {name}!")
+            logger.info("Let's try again, %s!", name)
             return
 
-    logger.info(f'Congratulations, {name}!')
+    logger.info('Congratulations, %s!', name)
 
 
 if __name__ == '__main__':
