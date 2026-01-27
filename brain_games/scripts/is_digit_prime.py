@@ -8,25 +8,38 @@ from brain_games.cli import YES_NO_WRONG_ANSWERS_MAP, logger, welcome_user
 
 
 def is_digit_prime(number: int) -> bool:
-    """Проверяет, простое ли число, и сравнивает результат с ответом игрока.
+    """Проверяет, является ли переданное число простым.
+
+    Простое число — натуральное число больше 1, имеющее ровно два
+    различных натуральных делителя: 1 и само себя.
 
     Args:
-        number (int): Число, которое проверяется.
+        number: Целое число для проверки.
 
     Returns:
-        bool: True, если число простое, иначе False.
+        True, если число простое; False в противном случае.
 
     """
-    dividers = [2, 3, 5]
+    if number <= 1:
+        return False
 
-    if number in dividers:
+    if number <= 3:  # noqa: PLR2004
         return True
 
-    # Если хоть одно число делится на предложенный делитель - оно не простое
-    for divider in dividers:
-        if number % divider == 0:
+    if number % 2 == 0 or number % 3 == 0:
+        return False
+
+    candidate_divisor = 5
+    while candidate_divisor * candidate_divisor <= number:
+        if (
+            number % candidate_divisor == 0
+            or number % (candidate_divisor + 2) == 0
+        ):
             return False
 
+        candidate_divisor += 6
+
+    # Если ни один делитель не подошёл — число простое
     return True
 
 
