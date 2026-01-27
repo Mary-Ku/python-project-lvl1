@@ -1,6 +1,7 @@
 """Модуль содержит базовые функции."""
 
 import logging
+from secrets import choice
 
 import prompt  # type: ignore[import-untyped]
 
@@ -27,3 +28,21 @@ def welcome_user() -> str | None:
 
     logger.info('Hello, %s!', name)
     return name
+
+
+def get_two_any_numbers(
+    first_in_range: int,
+    last_in_range: int,
+) -> tuple[int, int]:
+    """Возвращает два случайных числа из переданного диапазона.
+
+    Args:
+        first_in_range (int): начало диапазона.
+        last_in_range (int): конец диапазона.
+
+    Returns:
+        tuple[int, int]: два случайных числа из переданного диапазона.
+
+    """
+    any_range = range(first_in_range, last_in_range)
+    return choice(any_range), choice(any_range)
