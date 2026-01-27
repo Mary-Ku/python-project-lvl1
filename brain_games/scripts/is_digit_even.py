@@ -4,12 +4,7 @@ from secrets import randbelow
 
 import prompt  # type: ignore[import-untyped]
 
-from brain_games.cli import logger, welcome_user
-
-_WRONG_ANSWERS_MAP = {
-    'yes': 'no',
-    'no': 'yes',
-}
+from brain_games.cli import YES_NO_WRONG_ANSWERS_MAP, logger, welcome_user
 
 
 def is_answer_correct(number: int, answer: str) -> bool:
@@ -52,7 +47,7 @@ def main() -> None:
         if is_answer_correct(number, formatted_answer):
             logger.info('Correct!')
         else:
-            correct_answer = _WRONG_ANSWERS_MAP[formatted_answer]
+            correct_answer = YES_NO_WRONG_ANSWERS_MAP[formatted_answer]
 
             logger.info(
                 '"%s" is wrong answer ;(. Correct answer is "%s"',
