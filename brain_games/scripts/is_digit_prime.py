@@ -1,10 +1,6 @@
-"""Модуль содержит игру 'Is Digit Prime?'."""
+"""Модуль содержит функционал для игры  'Is Digit Prime?'."""
 
 from secrets import choice
-
-import prompt  # type: ignore[import-untyped]
-
-from brain_games.cli import YES_NO_WRONG_ANSWERS_MAP, logger, welcome_user
 
 
 def is_digit_prime(number: int) -> bool:
@@ -43,38 +39,16 @@ def is_digit_prime(number: int) -> bool:
     return True
 
 
-def main() -> None:
-    """Точка входа игры 'Is Digit Prime?'."""
-    name = welcome_user()
-    if not name:
-        return
+def get_main_data() -> tuple[int, str]:
+    """Подготавливает условие задачи и ответ для игры.
 
-    logger.info('Answer "yes" if given number is prime. Otherwise answer "no".')
+    Returns:
+        tuple[str, str]:
+            str: случайное число для вопроса игроку.
+            str: правильный ответ о чётности числа.
 
-    for _try in range(3):
-        number = choice(range(2, 1000))
-        correct_answer = 'yes' if is_digit_prime(number) else 'no'
+    """
+    number = choice(range(2, 1000))
+    correct_answer = 'yes' if is_digit_prime(number) else 'no'
 
-        answer = prompt.string(f'Question: {number}')
-        logger.info('Your answer: %s', answer)
-
-        formatted_answer = answer.lower().strip()
-
-        # Если ответ правильный - игра продолжается
-        if formatted_answer == correct_answer:
-            logger.info('Correct!')
-        else:
-            correct_answer = YES_NO_WRONG_ANSWERS_MAP[formatted_answer]
-
-            logger.info(
-                '"%s" is wrong answer ;(. Correct answer is "%s"'
-                "\n Let's try again, %s!",
-                formatted_answer, correct_answer, name,
-            )
-            return
-
-    logger.info('Congratulations, %s!', name)
-
-
-if __name__ == '__main__':
-    main()
+    return number, correct_answer
