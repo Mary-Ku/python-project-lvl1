@@ -15,12 +15,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-YES_NO_WRONG_ANSWERS_MAP = {
-    'yes': 'no',
-    'no': 'yes',
-}
-
-
 def format_answer(answer: str) -> str:
     """Редактирует ответ игрока.
 
