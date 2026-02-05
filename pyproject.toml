@@ -28,6 +28,6 @@ dev = [
 brain-games = "brain_games.scripts.main:main"
 brain-even = "brain_games.games.is_digit_even:main"
 brain-calc = "brain_games.games.calculator:main"
-brain-gcd = "brain_games.scripts.gcd:main"
+brain-gcd = "brain_games.games.gcd:main"
 brain-progression = "brain_games.scripts.arithmetic_progression:main"
 brain-prime = "brain_games.games.is_digit_prime:main"
