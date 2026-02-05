@@ -14,16 +14,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def format_answer(answer: str) -> str:
-    """Редактирует ответ игрока.
-
-    Returns:
-        str: Ответ игрока в нижнем регистре, без пробелов.
-
-    """
-    return answer.strip().lower()
-
-
 def run_game(func: RunGameFunc) -> Callable[..., None]:
     """Декоратор, оборачивающий функцию игры и запускающий игровой процесс.
 
@@ -49,7 +39,7 @@ def run_game(func: RunGameFunc) -> Callable[..., None]:
             answer = prompt.string(f'Question: {condition} ')
             logger.info('Your answer: %s', answer)
 
-            if correct_answer == format_answer(answer):
+            if correct_answer == answer.strip().lower():
                 logger.info('Correct!')
             else:
                 logger.info(
